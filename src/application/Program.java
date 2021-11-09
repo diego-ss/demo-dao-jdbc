@@ -1,7 +1,10 @@
 package application;
 
+import java.util.Date;
+
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model.entities.Department;
 import model.entities.Seller;
 
 public class Program {
@@ -21,6 +24,10 @@ public class Program {
 		for(Seller obj : sellers) {
 			System.out.println(obj);
 		}
+		System.out.println("\n=== TEST 4: seller insert =====");
+		seller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 3000.0, new Department(2, null));
+		//sellerDao.insert(seller);
+		System.out.println("Inserted! New id = " + seller.getId());
 	}
 
 }
