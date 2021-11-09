@@ -3,6 +3,7 @@ package application;
 import java.util.Date;
 
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -42,6 +43,18 @@ public class Program {
 		System.out.println("\n=== TEST 6: seller delete =====");
 		sellerDao.deleteById(10);
 		System.out.println("Seller deleted!");
+		
+		DepartmentDao depDao = DaoFactory.createDepartmentDao();
+		System.out.println("\n=== TEST 7: department insert =====");
+		var dep = new Department(null, "Music");
+		//depDao.insert(dep);
+		System.out.println("Inserted! New id = " + dep.getId());
+	
+		System.out.println("\n=== TEST 7: department findall =====");
+		var depts = depDao.findAll();
+		for(var x : depts) {
+			System.out.println(x);
+		}	
 	}
 
 }
